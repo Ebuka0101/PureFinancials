@@ -1,0 +1,914 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pure Financials</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker3.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+      *, *::before, *::after {
+        box-sizing: border-box;
+      }
+      section{
+        padding: 20px 0;
+      }
+      h1 {
+        position: relative;
+      }
+      html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+      /* .entryMoneyTreeContainer{
+        max-height: 380px;
+      }
+      .entryImg{
+        background-image: url("/assets/Bank-Vault-1.png");
+        background-size: contain;
+        text-align: center;
+        
+      } */
+      .moneyTree{
+        max-height: 100%;
+        max-width: 100%;
+      }
+
+      .entryMoneyTreeContainer{
+        position: relative; 
+        height: 100vh;
+        width: 100%;
+      }
+      .entryMoneyTreeContainer::before{
+        content: "";
+        background-image: url("/assets/falling_money_PNG15429.png");
+        background-size: contain;
+        text-align: center;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        opacity: 0.25;         
+      }
+      .starsContainer{
+        position: relative; 
+        height: 100vh;
+        width: 100%;
+      }
+      .starsContainer::before{
+        content: "";
+        background-image: url("/assets/6587507_preview.png");
+        background-size: contain;
+        text-align: center;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        opacity: 0.25;         
+      }
+      .team{
+        max-height: 5em;
+        max-width: 100%;
+      }
+      .aboutusGreen{
+        color: #32cb00;
+      }
+      .goalGreen{
+        color:#009624;
+      }
+      .maxPage{
+        height: 100%;
+        width: 100%;
+        
+      }
+      .pageContent{
+        margin-top: 35px;
+      }
+      .serviceBgPageColor{
+        background-color: #eeeeee;
+      }
+      .pageEnd{
+        margin-bottom: 35px;
+      }
+      .servicePageHeader{
+        color: #263238;
+      }
+      .blankDiv{
+        content: "";
+      }
+      .datepicker {
+        display: inline-block;
+        width: 100%;
+        height:100%;
+      }
+      .datepicker table {
+        width: 100%;
+        height:30em;
+      }
+
+      .datepicker td.disabled{
+        color: #009624;
+      }
+
+      .datepicker td,th {
+          text-align: center;
+          padding: 8px 12px;
+          font-size: 14px 20px;
+      }
+      .imageRadio {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      .imageRadio + img {
+        cursor: pointer;
+      }
+      .imageRadio:checked + img {
+        outline: 5px solid #32cb00;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- navbar -->
+     <header>
+          <nav class="navbar navbar-expand-lg bg-dark shadow-lg fixed-top">
+            <div class="class container-xxl ">
+              <a href="#landing" class="navbar-brand">
+                <span class="fw-bold text-light">
+                  Pure Financials
+                </span>
+              </a>
+              <button class="navbar-toggler" type="botton" data-bs-toggle="collapse" data-bs-target="#nav-cntl" aria-controls="nav-cntl" aria-expanded="false" aria-label="Toggle Navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse justify-content-end align-center" id="nav-cntl">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a href="#about_us" class="nav-link text-light">About Us</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#service-list" class="nav-link text-light">Service Types</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#availability" class="nav-link text-light">Contact Us</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#experts" class="nav-link text-light">Our Team</a>
+                  </li>
+                  <div class="vr mx-3 text-light d-none d-lg-inline"></div>
+                  <li class="nav-item">
+                    <a href="#booking" class="nav-link btn rounded-pill btn-success text-light">Schedule an appointment</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+      </header>
+      
+
+
+
+      
+      <!--Landing-->
+      <!-- Learn more button -->
+      <section id="landing" class="maxPage">
+        <div style="height:  380px;" class="entryMoneyTreeContainer pageContent" >
+          <div class="border border-dark" style="height:  380px;">
+            <div class="row justify-content-center" style="height:  380px;">
+              <div class=" col-5 text-center position-relative" style="height:  380px;">
+                <img class="moneyTree " src="/assets/2-26526_download-money-tree-png-image-hq-png-image.png" alt="The sauce">
+              </div>
+              <div class="col-6 text-center p-4 d-none d-lg-block" style="z-index: 100;">
+                <h1>
+                  <div class="display-2 text-muted text-black text-opacity-100">Make your</div>
+                  <div class="display-2 text-success text-opacity-100">Money Grow</div>
+                </h1>
+                <p class="lead my-4 text-muted ">At our team we're committed to you and your goal.</p>
+                <a href="#service-list" class="btn btn-secondary btn-lg bg-black">View Available services</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center p-4 d-lg-none d-block mg-lg-5">
+          <h1>
+            <div class="display-2 text-muted text-black text-opacity-100">Make your</div>
+            <div class="display-2 text-success text-opacity-100">Money Grow</div>
+          </h1>
+          <p class="lead my-4 text-muted ">At our team we're committed to you and your goal.</p>
+          <a href="#service-list" class="btn btn-secondary btn-xxl bg-black">View Available services</a>
+        </div> 
+        <div class="row">
+          <div class="text-center">
+            <h1 class="display-2 text-success">
+              Welcome to Pure Financials.
+            </h1>
+          </div>
+        </div>
+        <div class="row mt-lg-5">
+          <div class="text-center col-lg-4 ms-lg-5 align-self-center">
+            <p class="display-4 text-success">Require specialized help?</p>
+            <!-- why we're right for them  -->
+            <p class="fs-2 lead">We are you to help you safeguard from all of your financial problems</p>  
+          </div>
+          <div class="text-center col-lg-4 mb-lg-5">
+            <img class="img-fluid" src="/assets/Bank-Vault-PNG.png" alt="The sauce">
+          </div>
+        </div>
+        <div class="row pageEnd mt-lg-2">
+          <div class="col-12 text-center">
+            <a href="#about_us" class="btn btn-xxl btn-outline-secondary px-5 py-2 w-25" style="--bs-btn-font-size: 1.5rem;"><strong>Learn More</strong> </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Us -->
+      <section id="about_us" class="bg-dark bg-gradient maxPage">
+        <div class="container-lg pageContent pageEnd">
+          <div class="text-center aboutusGreen">
+            <h2 class="display-4 "><strong>Our Story</strong></h2>
+          </div>
+          <div class="row my-5 align-items-center">
+            <div class="col align-self-center text-light">
+              <p class="lead fs-3">Like most businesses our founders were ordinary people who managed to get an idea and a vision. The vision took shape and made pure financial in the year 3032 in the month of fakeer. The vision was of a world of pure financial freedom where the value of need of money is less of a concern.</p>
+            </div>
+            <div class="col-8">
+              <img src="/assets/Stock-Market-Data-Growth-Arrow.jpg" alt="stock Positive" class="img-fluid">
+            </div>
+          </div>
+          <div class="row my-3">
+            <div class="col text-left text-light">
+              <h2 class="display-4"><strong>Our Motto</strong></h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+              <img src="/assets/ot_group_home_page_mood.webp" alt="team" class="img-fluid mt-2">
+            </div>
+            <div class="col-8 align-self-center text-light"><p class="lead fs-3">Change always starts at home. So true financial freedom begins at home. Spend smarter.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Service List -->
+      <section id="service-list" class="serviceBgPageColor maxPage bg-gradient" style="padding:0px">
+        <div style="height:  405px; flex: 50%;" class="bg-light shadow-lg">
+          <div class="border p-0" style="height:  405px;">
+            <div class="row justify-content-center" style="height:  405px;">
+              <div class="text-center position-relative" >
+                <img class="moneyTree" src="/assets/servicedesk-plus-for-microsoft-teams.png" alt="Team Task" style="padding-top: 35px;">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="h2 display-5 text-center mt-3 servicePageHeader">
+            <strong>Ways we can help</strong> 
+          </div>
+        </div>
+
+        <!-- XXL visible List -->
+
+        <div class="row m-5-xxl mt-5 mb-4 justify-content-center d-none d-xxl-flex" style="height: 120px;">
+          <div class="col-2 border shadow bg-white align-self-center p-1 text-center align-items-center" style="height: 45px;width: 220px;">
+            <div class="align-self-center" style="height: 100%;width: 100%;">
+              <h2 class="lead fs-3 " style="margin: auto;">Budget Planning</h2>
+            </div>
+          </div>
+          <div class="col-5-xxl col-7 border shadow bg-white  ms-3 overflow-scroll" style="height: 120px;">
+              <p class="lead fs-4">
+                As said in our motto most changes begin in the home, so with this serivce we will be providing you with a spending guide lines to fit you spending needs.
+              </p>
+          </div>
+          <div class="col-1 border shadow bg-white align-self-center p-1 text-center align-items-center ms-3" style="height: 60px;width: 100px;">
+            <div class="align-self-center" style="height: 100%;width: 100%;">
+              <p class="fs-2 " style="margin: auto;"><small>$50</small></p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row m-5-xxl mt-5 mb-4 justify-content-center d-none d-xxl-flex" style="height: 120px;">
+          <div class="col-2 border shadow bg-white align-self-center p-1 text-center align-items-center" style="height: 80px;width: 220px;">
+            <div class="align-self-center" style="height: 100%;width: 100%;">
+              <h2 class="lead fs-3 " style="margin: auto;">Retirement Planning</h2>
+            </div>
+          </div>
+          <div class="col-5-xxl col-7 border shadow bg-white  ms-3 overflow-scroll" style="height: 120px;">
+              <p class="lead fs-4">
+                This service provides you with wasto achieve your retirement goals to make sure you have no less than your desired benefits.
+              </p>
+          </div>
+          <div class="col-1 border shadow bg-white align-self-center p-1 text-center align-items-center ms-3" style="height: 60px;width: 100px;">
+            <div class="align-self-center" style="height: 100%;width: 100%;">
+              <p class="fs-2 " style="margin: auto;"><small>$100</small></p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row m-5-xxl mt-5 mb-4 justify-content-center d-none d-xxl-flex" style="height: 120px;">
+          <div class="col-2 border shadow bg-white align-self-center p-1 text-center align-items-center" style="height: 45px;width: 220px;">
+            <div class="align-self-center" style="height: 100%;width: 100%;">
+              <h2 class="lead fs-3 " style="margin: auto;">Investment</h2>
+            </div>
+          </div>
+          <div class="col-5-xxl col-7 border shadow bg-white  ms-3 overflow-scroll" style="height: 120px;">
+              <p class="lead fs-4">
+                The price of smart investment strategy is priceless. And that is what we want to ptovide you with. With this service you would also be subsribed to our email list.              
+              </p>
+          </div>
+          <div class="col-1 border shadow bg-white align-self-center p-1 text-center align-items-center ms-3" style="height: 60px;width: 100px;">
+            <div class="align-self-center" style="height: 100%;width: 100%;">
+              <p class="fs-2 " style="margin: auto;"><small>$100</small></p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row m-5-xxl mt-5 mb-4 justify-content-center d-none d-xxl-flex" style="height: 120px;">
+          <div class="col-2 border shadow bg-white align-self-center p-1 text-center align-items-center" style="height: 45px;width: 220px;">
+            <div class="align-self-center" style="height: 100%;width: 100%;">
+              <h2 class="lead fs-3 " style="margin: auto;">Tax Service</h2>
+            </div>
+          </div>
+          <div class="col-5-xxl col-7 border shadow bg-white  ms-3 overflow-scroll" style="height: 120px;">
+              <p class="lead fs-4">
+                This service provides you with help when it comes to filling your taxes, and teaches you how to manage them on your own. 
+              </p>
+          </div>
+          <div class="col-1 border shadow bg-white align-self-center p-1 text-center align-items-center ms-3" style="height: 60px;width: 100px;">
+            <div class="align-self-center" style="height: 100%;width: 100%;">
+              <p class="fs-2 " style="margin: auto;"><small>$120</small></p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row m-5-xxl mt-5 mb-4 justify-content-center d-none d-xxl-flex" style="height: 120px;">
+          <div class="col-2 border shadow bg-white align-self-center p-1 text-center align-items-center" style="height: 80px;width: 220px;">
+            <div class="align-self-center" style="height: 100%;width: 100%;">
+              <h2 class="lead fs-3 " style="margin: auto;">Businees Evaluation</h2>
+            </div>
+          </div>
+          <div class="col-5-xxl col-7 border shadow bg-white  ms-3 overflow-scroll" style="height: 120px;">
+              <p class="lead fs-4">
+                This service helps you estimate the cost of a business, either buying, stating, selling or other. We will also look into your businees expenditures to ensure profit maximization.  
+              </p>
+          </div>
+          <div class="col-1 border shadow bg-white align-self-center p-1 text-center align-items-center ms-3" style="height: 60px;width: 100px;">
+            <div class="align-self-center" style="height: 100%;width: 100%;">
+              <p class="fs-2 " style="margin: auto;"><small>$500</small></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- XXL Accordian Invisible List-->
+
+        <div class="row my-5 g-5 justify-content-around align-items-center d-xxl-none">
+          <div class=" accordion" id="services">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading-1">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#budget-planning" aria-expanded="true" aria-controls="budget-planning">
+                  Budget Planning
+                </button>
+              </h2>
+              <div class="accordion-collapse collapse show" id="budget-planning" aria-labelledby="heading-1" data-bs-parent="#services">
+                <div class="accordion-body">
+                  <p>Looking to save for a particular item, or found out that you are always short on. </p>
+                  <p><strong>$100</strong></p>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading-2">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#retirement-planning" aria-expanded="true" aria-controls="retirement-planning">
+                  Retirement Planning
+                </button>
+              </h2>
+              <div class="accordion-collapse collapse" id="retirement-planning" aria-labelledby="heading-2" data-bs-parent="#services">
+                <div class="accordion-body">
+                  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis incidunt necessitatibus quo alias provident blanditiis velit?</p>
+                  <p><strong>$100</strong></p>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading-3">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#investment" aria-expanded="true" aria-controls="investment">
+                  Investment
+                </button>
+              </h2>
+              <div class="accordion-collapse collapse" id="investment" aria-labelledby="heading-3" data-bs-parent="#services">
+                <div class="accordion-body">
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                  <p><strong>$100</strong></p>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading-4">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#tax-services" aria-expanded="true" aria-controls="tax-services">
+                  Tax Services
+                </button>
+              </h2>
+              <div class="accordion-collapse collapse" id="tax-services" aria-labelledby="heading-4" data-bs-parent="#services">
+                <div class="accordion-body">
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae non sequi blanditiis ipsum.</p>
+                  <p><strong>$100</strong></p>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading-5">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#business-services" aria-expanded="true" aria-controls="business-services">
+                  Business Services
+                </button>
+              </h2>
+              <div class="accordion-collapse collapse" id="business-services" aria-labelledby="heading-5" data-bs-parent="#services">
+                <div class="accordion-body">
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae non sequi blanditiis ipsum.</p>
+                  <p><strong>$100</strong></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </section>
+
+      <!-- Contact-info -->
+
+      <section id="availability" class="maxPage bg-gradient">
+        <div style="height:600px;">
+          <div class="row justify-content-center" style="height:600px;">
+            <div class="text-center position-relative" >
+              <img class="img-fluid" src="/assets/199-1996028_clip-art-royalty-free-library-business-people-png.png" alt="Team Task" style="height: 600px;max-width: 100%; padding-top: 40px;">
+            </div>
+          </div>
+        </div>
+        <!-- <div class="container">
+          
+        </div> -->
+       
+        <div class="text-center aboutusGreen">
+          <h2 class="display-4 "><strong>Contact Info</strong></h2>
+        </div>
+        <div class="container align-items-center justify-content-center">
+          <hr class="divider">
+          <div class="row mt-5 justify-content-center">
+            <div class="col-1 justify-content-end" style="display: flex; align-items: center;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="currentColor" class="bi bi-map-fill" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.598-.49L10.5.99 5.598.01a.5.5 0 0 0-.196 0l-5 1A.5.5 0 0 0 0 1.5v14a.5.5 0 0 0 .598.49l4.902-.98 4.902.98a.502.502 0 0 0 .196 0l5-1A.5.5 0 0 0 16 14.5V.5zM5 14.09V1.11l.5-.1.5.1v12.98l-.402-.08a.498.498 0 0 0-.196 0L5 14.09zm5 .8V1.91l.402.08a.5.5 0 0 0 .196 0L11 1.91v12.98l-.5.1-.5-.1z"/>
+              </svg>
+            </div>
+            <div class="col align-self-center" ><h1 class="lead fs-3" style="display: flex; align-items:center;"><strong>Office Location:&nbsp;&nbsp;</strong> 7234 Fake Address  Ave, City, Provience, K1T 5D4 </h1></div>
+          </div>
+          <div class="row mt-5">
+            <div class="col-1 justify-content-end" style="display: flex; align-items: center;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+              </svg>
+            </div>
+            <div class="col align-self-center" ><h1 class="lead fs-3" style="display: flex; align-items:center;"><strong>Phone Number:&nbsp;&nbsp;</strong>(234)-567-8910</h1></div>
+          </div>
+          <div class="row mt-5">
+            <div class="col align-self-center" ><h1 class="lead fs-3" style="display: flex; align-items:center;"><strong>Days And Hours:&nbsp;&nbsp;</strong></h1></div>
+          </div>
+          <div>
+            <table class="table">
+              <thead class="table-dark">
+                <tr>
+                  <th scope="Days">Days</th>
+                  <th scope="Hours">Hours</th>
+                </tr>
+              </thead>
+              <tbody class="table-group-divider text-center">
+                <tr>
+                  <td>Monday</td>
+                  <td>9 am to 4pm</td>
+                </tr>
+                <tr>
+                  <td>Tuesday</td>
+                  <td>9 am to 4pm</td>
+                </tr>
+                <tr>
+                  <td>Wednesday</td>
+                  <td>9 am to 4pm</td>
+                </tr>
+                <tr>
+                  <td>Thursday</td>
+                  <td>9 am to 4pm</td>
+                </tr>
+                <tr>
+                  <td>Friday</td>
+                  <td>9 am to 4pm</td>
+                </tr>
+                <tr>
+                  <td>Satuday</td>
+                  <td>9 am to 3pm</td>
+                </tr>
+                <tr>
+                  <td>Sunday</td>
+                  <td>Closed</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experts -->
+
+      <section id="experts" class="bg-light" style="padding-top:0px;">
+        <div class="starsContainer bg-dark"  style="height:  424px;">
+           <div class="py-5 text-center container">
+            <div class="row py-lg-5">
+              <div class="col-lg-6 col-md-8 mx-auto text-light">
+                <h1 class="fw-light">The Team</h1>
+                <p class="lead text-light mt-5">
+                  "No Effort has been spared to acquire the best team, capabale of handling almost all your need. More text about their capablites and their varios achivements"
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+       <div class="container">
+         <div class="row mt-5 justify-content-center">
+           <div class="col-lg-4 text-center">
+            <img src="/assets/5f89f58d2dfac88175937119cecca63e copy.png" alt="loyaty Badge" style="height: 220px;max-width: 100%;" class="img-fluid">
+            <p class="fs-5 mt-3 text-muted">When you join up with us, your goals become our goals. We want to make sure our goal are accomplished</p>
+           </div>
+           <div class="col-lg-4 text-center">
+            <img src="/assets/d9aeb53d702512f3574e5f4d25f13a39.png" alt="loyaty Badge" style="height: 220px;max-width: 100%;" class="img-fluid">
+            <p class="fs-5 mt-3 text-muted">Our Team us dedicated to help you achieve all your goals</p>
+           </div>
+           <div class="col-lg-4 text-center">
+            <img src="/assets/6e7e7722f9f8dc8ca912680948193ddc.png" alt="loyaty Badge" style="height: 220px;max-width: 100%;" class="img-fluid">
+            <p class="fs-5 mt-3 text-muted">We will help you to find the most crative methods that will achieve your goals in the requested time</p>
+           </div>
+         </div>
+         <hr>
+         <div class="row my-5">
+           <div class="col-md-7">
+             <h2 class="fw-normal lh-1 mb-3">
+               John Doe
+             </h2>
+             <p class="lead">
+               <strong>Budjet Planning | Retirement Planning | Tax-Service</strong>
+               <br><br>
+               Hello, I should be a really good time. I excell at budjet planning, and have some back story that should make me the perfect fit for you. I should know what it feels like to be on the other side of the table. I have some other personalized stuff.
+             </p>
+           </div>
+           <div class="col-md-5">
+             <img src="/assets/3-36859_transparent-african-american-man-clipart-black-man-in.png" alt="John Doe" class="img-fluid" style="max-height: 500px;max-width: 100%;">
+           </div>
+         </div>
+         <hr>
+         <div class="row my-5">
+          <div class="col-md-5">
+            <img src="/assets/tqi-businesswoman.jpg" alt="Jane Foster" class="img-fluid" style="max-height: 500px;max-width: 100%;">
+          </div>
+          <div class="col-md-7">
+            <h2 class="fw-normal lh-1 mb-3">
+              Jane Foster
+            </h2>
+            <p class="lead">
+              <strong>Investment | Business Evaluation | Budget Planning | Tax-Service</strong>
+              <br><br>
+             Looking for some smart investment stategy with custom check in's or do you have a new business veture. Something unique and fun about me is the roles i developed doing finance. Other guys are great but this team is also good and more personal or something.
+            </p>
+          </div>
+        </div>
+        <hr>
+         <div class="row my-5">
+           <div class="col-md-7">
+             <h2 class="fw-normal lh-1 mb-3">
+               Serah Newman
+             </h2>
+             <p class="lead">
+               <strong>Retirement Planning</strong>
+               <br><br>
+               None of these images are of any actual employees, all images were gotten from google, information stated here is purely imaginary. This was done for the purpose of the assignment to give a realistic feel to the webpage.
+             </p>
+           </div>
+           <div class="col-md-5 bg-white">
+             <img src="/assets/1614236740552.png" alt="Serah Newman" class="img-fluid" style="max-height: 500px;max-width: 100%;">
+           </div>
+         </div>
+         <hr>
+         <div class="row my-5">
+          <div class="col-md-5">
+            <img src="/assets/aaaaaaa.jpg" alt=" Foster" class="img-fluid" style="max-height: 500px;max-width: 100%;">
+          </div>
+          <div class="col-md-7">
+            <h2 class="fw-normal lh-1 mb-3">
+              Mike Drew
+            </h2>
+            <p class="lead">
+              <strong>Investment | Business Evaluation | Budget Planning | Tax-Service</strong>
+              <br><br>
+             Once again i would like to say refer to serah as most of the words contained here are placeholders to give the webpage a realistic feel. I intionally avoided using Lorem ipsum dolor sit amet in order to simulate real text inputs.
+            </p>
+          </div>
+        </div>
+        <hr>
+         <div class="row my-5">
+           <div class="col-md-7">
+             <h2 class="fw-normal lh-1 mb-3">
+               Emily Cole
+             </h2>
+             <p class="lead">
+               <strong>Investment | Business Evaluation | Budget Planning | Tax-Service | Retirement Planning</strong>
+               <br><br>
+               I am the prim of the crop and of course this teams leader. I have over some random amount of years of experience and know how to do a lot. I you are in need of anything or in some distress fake i can help you. I am imaginary so i can't really help.
+             </p>
+           </div>
+           <div class="col-md-5 bg-white">
+             <img src="/assets/Ayisha+McHugh+Headshot.png" alt="Serah Newman" class="img-fluid" style="max-height: 500px;max-width: 100%;">
+           </div>
+         </div>
+       </div>
+      </section>
+
+      <!-- booking section -->
+
+      <section id="booking">
+        <form action="#" onsubmit="return alertGenerator(this)" class="g-3 needs-validation" novalidate>
+          <div class="container">
+            <div class="row  py-lg-5">
+              <div class="col">
+                <div class="input-group">
+                  <span class="input-group-text fs-5 lead bg-success text-light border-success" id="first_name">First Name</span>
+                  <input type="text" class="form-control" aria-label="First Name" aria-describedby="first_name" name="fname" id="bla"required>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                  <div class="invalid-feedback fs-5">
+                    Please enter your first name!
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="input-group">
+                  <span class="input-group-text fs-5 lead bg-success text-light border-success" id="last_name">Last Name</span>
+                  <input type="text" class="form-control" aria-label="Last Name" aria-describedby="last_name" name="lname" required>
+                    <div class="valid-feedback fs-5">
+                      Looks good!
+                    </div>
+                    <div class="invalid-feedback fs-5">
+                      Please enter your last name!
+                    </div>                
+                </div>                
+              </div>
+            </div>
+            <div class="input-group my-5" style="max-width: 700px; justify-content: center;">
+              <span class="input-group-text fs-5 lead bg-success text-light border-success" id="email" >
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+                  <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
+                </svg>
+              </span>
+              <input type="email" class="form-control" aria-label="Email" aria-describedby="email" placeholeder="e.g John@gmail.com"name="emailName" required>
+              <div class="valid-feedback fs-5">
+                Looks good!
+              </div>
+              <div class="invalid-feedback fs-5">
+                Please enter your email!
+              </div> 
+            </div>   
+            
+            <div class="mt-5 mb-3">
+              <h1 class="fs-3 lead">Select Your Expert: </h1>
+            </div>
+            <div class="justify-content-center mb-5 mt-2" id="redContorl" >
+              <label class="mx-2">
+                <input type="radio" name="test" value="John Doe" class="imageRadio" required>
+                <img src="/assets/3-36859_transparent-african-american-man-clipart-black-man-in.png" alt="John Doe" class="img-fluid" style="height: 200px;max-width: 100%;">
+                <p class="fs-3 lead text-center">John Doe</p>
+                <div class="valid-feedback fs-5">
+                  Looks good!
+                </div>
+                <div class="invalid-feedback fs-5">
+                  Please select an expert!
+                </div>
+              </label>
+              <label class="mx-2">
+                <input type="radio" name="test" value="Jane Foster" class="imageRadio" required>
+                <img src="/assets/tqi-businesswoman.jpg" alt="Jane Foster" class="img-fluid" style="height: 200px;max-width: 100%;">              
+                <p class="fs-3 lead text-center">Jane Foster</p>
+                <div class="valid-feedback fs-5">
+                  &nbsp;
+                </div>
+                <div class="invalid-feedback fs-5">
+                  <!-- Please enter your email! --> &nbsp;
+                </div>
+              </label>
+              <label class="mx-2">
+                <input type="radio" name="test" value="Serah Newman" class="imageRadio" required>
+                <img src="/assets/1614236740552.png" alt="Serah Newman" class="img-fluid bg-light" style="height: 200px;max-width: 100%;">              
+                <p class="fs-3 lead text-center">Serah Newman</p>
+                <div class="valid-feedback fs-5">
+                  &nbsp;
+                </div>
+                <div class="invalid-feedback fs-5">
+                  <!-- Please enter your email! --> &nbsp;
+                </div>
+              </label>
+              <label class="mx-2">
+                <input type="radio" name="test" value="Mike Drew" class="imageRadio" required>
+                <img src="/assets/aaaaaaa.jpg" alt="Mike Drew" class="img-fluid" style="height: 200px;max-width: 100%;">              
+                <p class="fs-3 lead text-center">Mike Drew</p>
+                <div class="valid-feedback fs-5">
+                  &nbsp;
+                </div>
+                <div class="invalid-feedback fs-5">
+                  <!-- Please enter your email! --> &nbsp;
+                </div>
+              </label>
+              <label class="mx-2">
+                <input type="radio" name="test" value="Emily Cole" class="imageRadio" required>
+                <img src="/assets/Ayisha+McHugh+Headshot.png" alt="Emily Cole" class="img-fluid bg-light" style="height: 200px;max-width: 100%;">              
+                <p class="fs-3 lead text-center">Emily Cole</p>
+                <div class="valid-feedback fs-5">
+                  &nbsp;
+                </div>
+                <div class="invalid-feedback fs-5">
+                  <!-- Please enter your email! --> &nbsp; 
+                </div>
+              </label>
+            </div>
+            
+            <div class="input-group my-5">
+              <h1 class="fs-3 lead text-start">Select Service Type: </h1>
+              <div class="col-lg-6 ms-3 text-start">
+              <select name="service_list"class="form-select" aria-label="service Type" required>
+                <option disabled selected value="">Click to select</option>
+                <option value="Budget Planning">Budget Planning</option>
+                <option value="Retirement Planning">Retirement Planning</option>
+                <option value="Investment">Investment</option>
+                <option value="Tax Services">Tax Services</option>
+                <option value="Business Evaluation">Business Evaluation</option>               
+              </select> 
+              <div class="valid-feedback fs-5">
+                Looks good!
+              </div>
+              <div class="invalid-feedback fs-5">
+                Please select a service!
+              </div>               
+              </div>
+
+            </div>
+
+            <div class="row  mt-3 justify-content-center" id="calenderFormRow">
+              <div class="col-lg-5 shadow" style="height: 500px; border-color:Black; border-width: 2px;background-color: lightgrey; border-style: solid;" id="date_border">
+                <div class="datepicker js-datepicker-inline" tabindex="0" id="dateVal" date-date=""></div>
+                <input type="text" id="hidden_date_input" name="hiddenDate" required style="display:none">
+                <div class="valid-feedback fs-5">
+                  Looks good!
+                </div>
+                <div class="invalid-feedback fs-5">
+                  Please select a date!
+                </div>
+              </div>
+              <div class="col-lg-3 ms-5 mt-5 align-self-center" role="group" aria-label="Basic radio toggle button group" id="radio_container" style="width: 380px;">
+                <div class="row justify-content-center my-3 me-5 me-md-0" >
+                  <div class="col align-self-center px-1 mx-lg-3">
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="9 AM to 10 AM" required>
+                    <label class="btn btn-outline-success px-0 btn-lg" for="btnradio1" style="width: 100%;" id="lb">9AM to 10AM</label>
+                  </div>
+                  <div class="col align-self-center px-1">
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="10 AM to 11 AM" required>
+                    <label class="btn btn-outline-success px-0 btn-lg" for="btnradio2" style="width: 100%;" id="lb">10AM to 11AM</label>
+                  </div>
+                </div>
+                <div class="row justify-content-center my-3 me-5 me-md-0">
+                  <div class="col align-self-center px-1 mx-lg-3">
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="11 AM to 12PM" required>
+                    <label class="btn btn-outline-success px-0 btn-lg" for="btnradio3" style="width: 100%;" id="lb">11AM to 12PM</label>
+                  </div>                  
+                  <div class="col align-self-center px-1">
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="1 PM to 2 PM" required>
+                    <label class="btn btn-outline-success px-0 btn-lg" for="btnradio4" style="width: 100%;" id="lb">1PM to 2PM</label>
+                  </div>
+                </div>
+                <div class="row justify-content-center my-lg-3 me-5 me-md-0">
+                  <div class="col align-self-center px-1 mx-lg-3" >
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off"  value="2 AM to 3 AM" required>
+                    <label class="btn btn-outline-success px-0 btn-lg" for="btnradio5" style="width: 100%;" id="lb">2PM to 3PM</label>
+                  </div>
+                  <div class="col align-self-center px-1" >
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio6" autocomplete="off" value="3 AM to 4 PM" required>
+                    <label class="btn btn-outline-success px-0 btn-lg" for="btnradio6" style="width: 100%;" id="lb">3PM to 4 PM</label>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="text-center m-5">
+              <button class="btn btn-lg btn-outline-success px-lg-5 py-2 w-25" type="submit">Book Now</button>
+            </div>                       
+          </div>
+        </form> 
+      </section>
+
+      
+      <!-- DATE PICKER SCRIPT -->
+
+      <script type="text/javascript">
+        var leftArrowHTML= `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                              <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                            </svg>`;
+        var rightArrowHTML= `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                              <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                            </svg>`;
+        $(function () {
+          var DATE_FORMAT = 'm/d/yy';
+          var $datepicker = $('.js-datepicker-inline');
+          $datepicker.datepicker({
+            format: DATE_FORMAT,
+            templates: {
+                leftArrow: `${leftArrowHTML}`,
+                rightArrow: `${rightArrowHTML}`
+            }
+          });
+          $('#dateVal').on('changeDate', function(){
+            $('#hidden_date_input').val($('#dateVal').datepicker('getFormattedDate'));
+            document.getElementById("date_border").style.border = '2px solid black'
+          });
+        });                
+      </script>
+
+      <script type="text/javascript">
+        const radioBtn = document.querySelectorAll('.btn-check');
+        const old = document.getElementById("selectDateFeedback");
+        radioBtn.forEach(btn =>{
+          btn.addEventListener('change', function(){
+            if(document.getElementById("selectDateFeedback")){
+              document.querySelectorAll('#lb').forEach(bl => {
+              bl.classList.add('btn-outline-success');
+              bl.classList.remove('btn-outline-danger');
+              })
+              document.getElementById("selectDateFeedback").remove();
+            }
+          })
+        })           
+      </script>
+
+      <script type="text/javascript">
+        $(function () {
+          'use strict'
+          const forms = document.querySelectorAll('.needs-validation')
+          const hiddenDate = document.querySelector('#hidden_date_input')
+          const radioButtonTime = document.querySelector('.btn-check') 
+          console.log(hiddenDate)
+          Array.from(forms).forEach(form => {
+            console.log(form);
+            form.addEventListener('submit', event => {
+              if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+                  if((!hiddenDate.checkValidity())){
+                    document.getElementById("date_border").style.border = '2px solid red'
+                  }
+                  if((!radioButtonTime.checkValidity())){
+                    if(!document.getElementById("selectDateFeedback")){
+                      document.getElementById("radio_container").insertAdjacentHTML("beforeend",`<div class="fs-5 text-danger" id="selectDateFeedback">Please select a time!</div>`);
+                      document.querySelectorAll('#lb').forEach(btn => {
+                      btn.classList.remove('btn-outline-success');
+                      btn.classList.add('btn-outline-danger');
+                      console.log(btn)
+                    })
+                    }
+
+
+                  }                
+                console.log(hiddenDate.checkValidity());
+              }
+              form.classList.add('was-validated')
+            }, false)
+          })                    
+        });
+        function alertGenerator(form){
+          if(form.checkValidity()){
+            console.log(form)
+            var na= form.test.value
+            alert( `Congratulations ${form.fname.value}, ${form.lname.value} using the email ${form.emailName.value}\n your ${form.service_list.value} appointment with ${form.test.value} has been confirmed \n your expert will be ready to recieve you on ${form.hiddenDate.value} at ${form.btnradio.value}`)
+          }
+        }
+      </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  </body>
+</html>
